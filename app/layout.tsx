@@ -62,7 +62,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const gtmId = process.env.NEXT_PUBLIC_GTM_ID || "GTM-PVS4CDBB";
+  const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
 
   return (
     <html lang="pt-BR" className={`${kanit.variable}`}>

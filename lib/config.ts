@@ -3,6 +3,7 @@
  */
 
 export const config = {
+  gtmId: process.env.NEXT_PUBLIC_GTM_ID ?? "",
   metaPixelId: process.env.NEXT_PUBLIC_META_PIXEL_ID ?? "",
   whatsappNumber: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "",
   whatsappMessage: process.env.NEXT_PUBLIC_WHATSAPP_MESSAGE ?? "Quero saber mais",
@@ -14,6 +15,10 @@ export const supabaseConfig = {
   url: process.env.NEXT_PUBLIC_SUPABASE_URL ?? "",
   anonKey: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ?? "",
 };
+
+export function isGtmConfigured(): boolean {
+  return config.gtmId.trim().length > 0;
+}
 
 export function isPixelConfigured(): boolean {
   return config.metaPixelId.trim().length > 0;
