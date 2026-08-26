@@ -61,23 +61,6 @@ export function useTracking() {
   }
 
   async function trackClique(phone?: string): Promise<void> {
-    // Dispara evento Contact no Meta Pixel e no dataLayer do GTM
-    if (typeof window !== "undefined") {
-      try {
-        if (typeof (window as any).fbq === "function") {
-          (window as any).fbq("track", "Contact", {
-            content_name: "WhatsApp Click",
-          });
-        }
-        (window as any).dataLayer = (window as any).dataLayer || [];
-        (window as any).dataLayer.push({
-          event: "whatsapp_click",
-        });
-      } catch (e) {
-        console.warn("[tracking] Erro ao disparar fbq/dataLayer:", e);
-      }
-    }
-
     if (!isSupabaseConfigured()) {
       console.warn("[useTracking] Supabase não configurado - clique não será rastreado");
       return;
